@@ -1,0 +1,25 @@
+{
+  "svelte.enable-ts-plugin": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#d1aff5",
+    "activityBar.background": "#d1aff5",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#aa5e15",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#d1aff5",
+    "statusBar.background": "#b782ef",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#9d55e9",
+    "statusBarItem.remoteBackground": "#b782ef",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#b782ef",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#b782ef99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#b782ef",
+  "Codegeex.RepoIndex": true,
+  "css.lint.unknownAtRules": "ignore"
+}
