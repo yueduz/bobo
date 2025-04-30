@@ -1,12 +1,13 @@
 # bobo(波哦波)
 
-一个从tcp接收数据并显示为波形的软件.
+一个从tcp接收数据并显示为波形的软件。
 
 ![screenshot](screenshot.png)
 
-点击开始后在本地9333监听tcp连接.一个"0xfffffff00fffffff"被示为一个开始标记.标记应先发高位.多次发送只需要一个开始标记,也可在每次发送时发送标记.该标记用于对齐数据,以便正确解析数据类型.
+点击开始后在本地9333监听tcp连接。一个"0xfffffff00fffffff"被示为一个开始标记。数据应先发高位。多次发送只需要一个开始标记,也可在每次发送时发送标记。该标记用于对齐数据,以便正确解析数据类型。
 
-## 发送标记示例
+## 发送示例
+该示例使用[cortex-debug](https://github.com/Marus/cortex-debug)将RTT 通道1转发到bobo。以下是三个必要中代码片断。
 ### 单片机代码
 
 ```c
@@ -37,14 +38,12 @@ SEGGER_RTT_Write(1, start, 8);
       "servertype": "openocd",
       "interface": "swd",
       "svdFile": "${workspaceRoot}/AT32F435CMU7_WorkBench/project/AT32_IDE/SVD/AT32F435xx_v2.svd",
-      "preLaunchTask": "build Debug", //先运行make任务
-      // "searchDir": ["/home/${env:USER}/.openocd/scripts"],
+      "preLaunchTask": "build Debug",
       "serverpath": "/home/lei/at32-work-bench/OpenOCD_Linux_x86-64_V2.0.6/bin/openocd",
       "configFiles": ["openocd_dap.cfg"],
       "rttConfig": {
         "enabled": true,
         "address": "auto",
-        // "clearSearch": false    // OpenOCD users may have to un-comment this
         "decoders": [
           {
             "port": 0,
@@ -58,7 +57,7 @@ SEGGER_RTT_Write(1, start, 8);
             "port": 1,
             "type": "advanced",
             "decoder": "rtt_forward.js",
-            "ports": [1]  // Specify which SWO ports to forward
+            "ports": [1]
         }
         ]
       }
